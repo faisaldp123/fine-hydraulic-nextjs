@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  --graphite: #12161A;
+  --steel: #1D242B;
+  --steel-2: #262F38;
+  --slate: #6B7885;
+  --slate-light: #9AA5AF;
+  --amber: #E2861E;
+  --amber-dark: #B96812;
+  --paper: #F3F0E8;
+  --paper-2: #EAE5D8;
+  --ink: #14181C;
+  --line: rgba(255,255,255,0.09);
+  --line-dark: rgba(20,24,28,0.12);
+}
+
+@theme inline {
+  --color-graphite: var(--graphite);
+  --color-steel: var(--steel);
+  --color-steel-2: var(--steel-2);
+  --color-slate: var(--slate);
+  --color-slate-light: var(--slate-light);
+  --color-amber: var(--amber);
+  --color-amber-dark: var(--amber-dark);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --font-display: var(--font-oswald), "Arial Narrow", sans-serif;
+  --font-body: var(--font-plex), Arial, Helvetica, sans-serif;
+  --font-data: var(--font-plex-mono), "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body, Arial, sans-serif);
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--graphite);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-data {
+  font-family: var(--font-data);
+}
+
+/* Blueprint grid backdrop used as the site's signature texture */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(226,134,30,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(226,134,30,0.09) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.blueprint-grid-dark {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* corner bracket mark, technical-drawing style */
+.crop-marks {
+  position: relative;
+}
+.crop-marks::before,
+.crop-marks::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--amber);
+  pointer-events: none;
+}
+.crop-marks::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--amber);
+  border-left: 2px solid var(--amber);
+}
+.crop-marks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--amber);
+  border-right: 2px solid var(--amber);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
