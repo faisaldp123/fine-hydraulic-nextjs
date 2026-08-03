@@ -33,7 +33,7 @@ export const siteConfig = {
   shortDescription:
     "Genuine-spec hydraulic & heavy-equipment components: engines, pumps, motors, undercarriage parts and CAT spares.",
   phone: "+91 84478 11405",
-  email: "sales@finehydraulic.com",
+  email: "info@finehydraulic.com",
   whatsapp: "+91 84478 11407",
   address: "New Delhi, Delhi, India",
   hours: "Mon – Sat, 9:30 AM – 7:00 PM IST",

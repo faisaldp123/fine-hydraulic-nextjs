@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X, Phone } from "lucide-react";
@@ -36,15 +37,18 @@ export function Header() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="flex h-9 w-9 items-center justify-center rounded-sm bg-amber font-display text-lg font-semibold text-graphite">
-            F
-          </span>
-          <span className="font-display text-xl uppercase tracking-wide text-paper">
-            Fine<span className="text-amber">Hydraulic</span>
-          </span>
-        </Link>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <Link href="/" className="flex items-center shrink-0 overflow-hidden">
+  <div className="relative h-[65px] w-[290px] sm:h-[70px] sm:w-[320px]">
+    <Image
+      src="/images/logo-new.png"
+      alt="Fine Hydraulic"
+      fill
+      priority
+      className="object-contain object-left"
+    />
+  </div>
+</Link>
 
         {/* desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">

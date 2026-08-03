@@ -1,6 +1,13 @@
+import Image from "next/image";
 import { Category } from "@/lib/data";
 
 const ACCENTS = ["#E2861E", "#6B8CAE", "#B96812", "#8A9BA8"];
+
+// Products without listed photos keep their existing technical SVG illustration.
+const CATEGORY_IMAGES: Partial<Record<Category["slug"], string[]>> = {
+  engine: ["/images/engine/one.jpeg", "/images/engine/two.jpeg", "/images/engine/three.jpeg", "/images/engine/four.jpeg"],
+  excavator: ["/images/excavator/one.jpeg", "/images/excavator/two.jpeg", "/images/excavator/three.jpeg"],
+};
 
 function Glyph({ icon, stroke }: { icon: Category["icon"]; stroke: string }) {
   const common = {
@@ -182,20 +189,32 @@ export function CategoryVisual({
 }) {
   const accent = ACCENTS[variant % ACCENTS.length];
   const rotate = [0, 0, 0, 0][variant % 4];
+  const images = CATEGORY_IMAGES[category.slug];
+  const image = images?.[variant % images.length];
   return (
     <div
       className={`relative overflow-hidden rounded-sm bg-steel crop-marks ${className}`}
       style={{ aspectRatio: "4 / 3" }}
     >
       <div className="absolute inset-0 blueprint-grid-dark" />
-      <div
-        className="absolute inset-0 flex items-center justify-center"
-        style={{ transform: `rotate(${rotate}deg)` }}
-      >
-        <svg viewBox="0 0 190 200" width="62%" height="62%">
-          <Glyph icon={category.icon} stroke={accent} />
-        </svg>
-      </div>
+      {image ? (
+        <Image
+          src={image}
+          alt={`${category.name} component`}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
+        />
+      ) : (
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ transform: `rotate(${rotate}deg)` }}
+        >
+          <svg viewBox="0 0 190 200" width="62%" height="62%">
+            <Glyph icon={category.icon} stroke={accent} />
+          </svg>
+        </div>
+      )}
       <div className="absolute left-3 top-3 font-data text-[10px] tracking-widest text-slate-light/80">
         FIG. {figNo}
       </div>
