@@ -1,7 +1,32 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowRight, ShieldCheck, Gauge, Truck, Wrench, Phone } from "lucide-react";
 import { categories, siteConfig } from "@/lib/data";
 import { CategoryVisual } from "@/components/CategoryVisual";
+
+export const metadata: Metadata = {
+  title: "Fine Hydraulic | Hydraulic Pumps, Motors & Excavator Parts in India",
+  description:
+    "Fine Hydraulic in New Delhi supplies and rebuilds hydraulic pumps, hydraulic motors, excavator parts, transmissions, engines, track motors and CAT spares across India.",
+  keywords: [
+    "Fine Hydraulic",
+    "Fine Hydraulic India",
+    "hydraulic pump repair India",
+    "hydraulic motor repair India",
+    "excavator parts Delhi",
+    "excavator spare parts India",
+    "CAT spares India",
+    "heavy equipment hydraulic parts",
+    "hydraulic pump supplier Delhi",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Fine Hydraulic | Hydraulic Pumps, Motors & Excavator Parts in India",
+    description:
+      "Hydraulic pumps, motors, excavator components, transmissions, engines and CAT spares â€” rebuilt, tested and supplied across India.",
+    url: "/",
+  },
+};
 
 export default function HomePage() {
   return (
@@ -15,7 +40,7 @@ export default function HomePage() {
               Est. {siteConfig.founded} — Heavy Equipment Component Specialists
             </span>
             <h1 className="mt-5 font-display text-4xl uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-              Rebuilt to <span className="text-amber">factory tolerance.</span>
+              Fine Hydraulic: rebuilt to <span className="text-amber">factory tolerance.</span>
               <br /> Tested before it ships.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-light sm:text-lg">

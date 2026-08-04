@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Heavy Equipment Hydraulic Parts & Rebuilt Components`,
+    default: `${siteConfig.name} | Hydraulic Pumps, Motors & Heavy Equipment Parts`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     "cat spares",
     "hydraulic pump repair",
     "hydraulic motor rebuild",
+    "hydraulic pump supplier India",
+    "hydraulic parts supplier Delhi",
+    "hydraulic repair New Delhi",
+    "excavator hydraulic parts",
+    "excavator spare parts India",
+    "heavy equipment spare parts",
     "excavator transmission",
     "track motor",
     "swing device",
@@ -32,7 +38,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | Heavy Equipment Hydraulic Parts & Rebuilt Components`,
+    title: `${siteConfig.name} | Hydraulic Pumps, Motors & Heavy Equipment Parts`,
     description: siteConfig.description,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: siteConfig.name }],
   },
@@ -59,23 +65,49 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/opengraph-image`,
-    description: siteConfig.description,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.address,
-      addressCountry: "IN",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: siteConfig.phone,
-      contactType: "sales",
-      email: siteConfig.email,
-    },
-    sameAs: Object.values(siteConfig.social),
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteConfig.url}/#organization`,
+        name: siteConfig.legalName,
+        alternateName: "Fine Hydraulic India",
+        url: siteConfig.url,
+        logo: `${siteConfig.url}/opengraph-image`,
+        description: siteConfig.description,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: siteConfig.address,
+          addressLocality: "New Delhi",
+          addressRegion: "Delhi",
+          addressCountry: "IN",
+        },
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: siteConfig.phone,
+          contactType: "sales",
+          email: siteConfig.email,
+          areaServed: "IN",
+          availableLanguage: ["en", "hi"],
+        },
+        areaServed: { "@type": "Country", name: "India" },
+        knowsAbout: [
+          "Hydraulic pump repair",
+          "Hydraulic motor repair",
+          "Excavator spare parts",
+          "Heavy equipment components",
+          "CAT spares",
+        ],
+        sameAs: Object.values(siteConfig.social),
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.url}/#website`,
+        url: siteConfig.url,
+        name: siteConfig.name,
+        publisher: { "@id": `${siteConfig.url}/#organization` },
+        inLanguage: "en-IN",
+      },
+    ],
   };
 
   return (

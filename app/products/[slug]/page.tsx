@@ -19,14 +19,19 @@ export async function generateMetadata({
   const category = getCategory(slug);
   if (!category) return {};
 
-  const title = `${category.name} — Rebuilt & Genuine-Spec Parts`;
+  const title = `${category.name} Parts — Rebuilt & Genuine-Spec`;
   const description = category.description;
   const url = `${siteConfig.url}/products/${category.slug}`;
 
   return {
     title,
     description,
-    keywords: category.keywords,
+    keywords: [
+      ...category.keywords,
+      `${category.name} parts India`,
+      `${category.name} repair Delhi`,
+      `Fine Hydraulic ${category.name}`,
+    ],
     alternates: { canonical: `/products/${category.slug}` },
     openGraph: {
       type: "website",
