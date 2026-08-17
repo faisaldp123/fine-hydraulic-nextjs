@@ -38,9 +38,9 @@ export const siteConfig = {
     "Fine Hydraulic supplies rebuilt and genuine-spec transmissions, engines, hydraulic pumps and motors, undercarriage components, and CAT spares for excavators, graders, rollers and dozers — backed by testing and warranty.",
   shortDescription:
     "Genuine-spec hydraulic & heavy-equipment components: engines, pumps, motors, undercarriage parts and CAT spares.",
-  phone: "+91 84478 11405",
+  phone: "+91 84478 11407",
   email: "info@finehydraulic.com",
-  whatsapp: "+91 84478 11405",
+  whatsapp: "+91 84478 11407",
   address: "New Delhi, Delhi, India",
   hours: "Mon – Sat, 9:30 AM – 7:00 PM IST",
   founded: "2005",
