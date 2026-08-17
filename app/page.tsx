@@ -32,8 +32,8 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-graphite text-paper">
-        <div className="absolute inset-0 blueprint-grid-dark" />
+      <section className="relative overflow-hidden bg-paper-2 text-ink">
+        <div className="absolute inset-0 blueprint-grid" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
           <div>
             <span className="font-data text-xs uppercase tracking-[0.25em] text-amber">
@@ -43,7 +43,7 @@ export default function HomePage() {
               Fine Hydraulic: rebuilt to <span className="text-amber">factory tolerance.</span>
               <br /> Tested before it ships.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-light sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate sm:text-lg">
               {siteConfig.shortDescription} From transmissions to CAT spares — {categories.length}
               component lines, one quality standard.
             </p>
@@ -56,23 +56,23 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/gallery"
-                className="flex items-center gap-2 rounded-sm border border-line px-6 py-3.5 font-display uppercase tracking-wide text-paper hover:border-amber hover:text-amber transition-colors"
+                className="flex items-center gap-2 rounded-sm border border-line-dark px-6 py-3.5 font-display uppercase tracking-wide text-ink hover:border-amber hover:text-amber transition-colors"
               >
                 View Our Work
               </Link>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-line pt-6 sm:max-w-md">
+            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-line-dark pt-6 sm:max-w-md">
               <div>
                 <div className="font-display text-3xl text-amber">{categories.length}</div>
-                <div className="font-data text-xs uppercase tracking-wide text-slate-light">Component lines</div>
+                <div className="font-data text-xs uppercase tracking-wide text-slate">Component lines</div>
               </div>
               <div>
                 <div className="font-display text-3xl text-amber">20+</div>
-                <div className="font-data text-xs uppercase tracking-wide text-slate-light">Years in service</div>
+                <div className="font-data text-xs uppercase tracking-wide text-slate">Years in service</div>
               </div>
               <div>
                 <div className="font-display text-3xl text-amber">1000+</div>
-                <div className="font-data text-xs uppercase tracking-wide text-slate-light">Units rebuilt</div>
+                <div className="font-data text-xs uppercase tracking-wide text-slate">Units rebuilt</div>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function HomePage() {
       </section>
 
       {/* PROCESS */}
-      <section className="bg-graphite py-20 text-paper">
+      <section className="border-y border-line-dark bg-paper-2 py-20 text-ink">
         <div className="mx-auto max-w-7xl px-6">
           <span className="font-data text-xs uppercase tracking-[0.25em] text-amber">Our process</span>
           <h2 className="mt-3 font-display text-3xl uppercase tracking-tight sm:text-4xl">
@@ -154,10 +154,10 @@ export default function HomePage() {
               { step: "Test", body: "Bench and dyno-tested for pressure, flow, torque or compression." },
               { step: "Dispatch", body: "Packed and shipped pan-India with warranty documentation." },
             ].map((s, i) => (
-              <div key={s.step} className="border-t border-line pt-5">
-                <span className="font-data text-xs text-slate-light">STEP {String(i + 1).padStart(2, "0")}</span>
+              <div key={s.step} className="border-t border-line-dark pt-5">
+                <span className="font-data text-xs text-slate">STEP {String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-2 font-display text-xl uppercase text-amber">{s.step}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-light">{s.body}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{s.body}</p>
               </div>
             ))}
           </div>

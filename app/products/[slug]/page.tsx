@@ -81,6 +81,7 @@ export default async function ProductPage({
         eyebrow="Product Category"
         title={category.name}
         description={category.tagline}
+        image={category.images?.[0]}
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Products", href: "/gallery" },
