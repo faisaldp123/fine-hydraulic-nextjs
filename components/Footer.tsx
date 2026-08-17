@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { categories, siteConfig } from "@/lib/data";
 import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "@/components/SocialIcons";
@@ -10,22 +11,17 @@ export function Footer() {
   const col2 = categories.slice(half);
 
   return (
-    <footer className="border-t border-line bg-graphite text-paper">
+    <footer className="border-t border-line-dark bg-white text-ink">
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-sm bg-amber font-display text-lg font-semibold text-graphite">
-                F
-              </span>
-              <span className="font-display text-xl uppercase tracking-wide">
-                Fine<span className="text-amber">Hydraulic</span>
-              </span>
+            <Link href="/" className="relative block h-16 w-[250px]">
+              <Image src="/images/logo-new.png" alt="Fine Hydraulic" fill className="object-contain object-left" />
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-light">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate">
               {siteConfig.shortDescription}
             </p>
-            <div className="mt-5 space-y-2 text-sm text-slate-light">
+            <div className="mt-5 space-y-2 text-sm text-slate">
               <div className="flex items-start gap-2">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-amber" />
                 <span>{siteConfig.address}</span>
@@ -60,7 +56,7 @@ export function Footer() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-sm border border-line text-slate-light hover:border-amber hover:text-amber transition-colors"
+                  className="flex h-9 w-9 items-center justify-center rounded-sm border border-line-dark text-slate hover:border-amber hover:text-amber transition-colors"
                 >
                   <Icon size={16} />
                 </a>
@@ -73,7 +69,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {col1.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/products/${c.slug}`} className="text-sm text-slate-light hover:text-paper transition-colors">
+                  <Link href={`/products/${c.slug}`} className="text-sm text-slate hover:text-amber transition-colors">
                     {c.shortName}
                   </Link>
                 </li>
@@ -86,7 +82,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {col2.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/products/${c.slug}`} className="text-sm text-slate-light hover:text-paper transition-colors">
+                  <Link href={`/products/${c.slug}`} className="text-sm text-slate hover:text-amber transition-colors">
                     {c.shortName}
                   </Link>
                 </li>
@@ -97,17 +93,17 @@ export function Footer() {
           <div>
             <h3 className="font-display text-sm uppercase tracking-widest text-amber">Company</h3>
             <ul className="mt-4 space-y-2.5">
-              <li><Link href="/" className="text-sm text-slate-light hover:text-paper transition-colors">Home</Link></li>
-              <li><Link href="/about" className="text-sm text-slate-light hover:text-paper transition-colors">About Us</Link></li>
-              <li><Link href="/gallery" className="text-sm text-slate-light hover:text-paper transition-colors">Gallery</Link></li>
-              <li><Link href="/contact" className="text-sm text-slate-light hover:text-paper transition-colors">Contact Us</Link></li>
+              <li><Link href="/" className="text-sm text-slate hover:text-amber transition-colors">Home</Link></li>
+              <li><Link href="/about" className="text-sm text-slate hover:text-amber transition-colors">About Us</Link></li>
+              <li><Link href="/gallery" className="text-sm text-slate hover:text-amber transition-colors">Gallery</Link></li>
+              <li><Link href="/contact" className="text-sm text-slate hover:text-amber transition-colors">Contact Us</Link></li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-line">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-slate-light md:flex-row">
+      <div className="border-t border-line-dark">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-slate md:flex-row">
           <span>© {year} {siteConfig.legalName}. All rights reserved.</span>
           <span className="font-data">Genuine-spec parts · Tested before dispatch · Pan-India shipping</span>
         </div>

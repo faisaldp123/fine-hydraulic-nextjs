@@ -81,7 +81,7 @@ export default function AboutPage() {
               { Icon: Factory, value: "20+ yrs", label: "In operation" },
               { Icon: Award, value: "1000+", label: "Units rebuilt" },
               { Icon: Users, value: "300+", label: "Fleet & contractor clients" },
-              { Icon: Target, value: "12", label: "Component categories" },
+              { Icon: Target, value: String(categories.length), label: "Component categories" },
             ].map(({ Icon, value, label }) => (
               <div key={label} className="text-center">
                 <Icon size={26} className="mx-auto text-amber" />

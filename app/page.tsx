@@ -44,7 +44,7 @@ export default function HomePage() {
               <br /> Tested before it ships.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-light sm:text-lg">
-              {siteConfig.shortDescription} From transmissions to CAT spares — twelve
+              {siteConfig.shortDescription} From transmissions to CAT spares — {categories.length}
               component lines, one quality standard.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -63,7 +63,7 @@ export default function HomePage() {
             </div>
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-line pt-6 sm:max-w-md">
               <div>
-                <div className="font-display text-3xl text-amber">12</div>
+                <div className="font-display text-3xl text-amber">{categories.length}</div>
                 <div className="font-data text-xs uppercase tracking-wide text-slate-light">Component lines</div>
               </div>
               <div>
@@ -77,11 +77,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 self-center">
-            <CategoryVisual category={categories[2]} figNo="A1" className="translate-y-6" />
+          <div className="grid grid-cols-2 gap-5 self-center p-2 sm:gap-6">
+            <CategoryVisual category={categories[2]} figNo="A1" className="translate-y-4" />
             <CategoryVisual category={categories[7]} figNo="A2" variant={1} />
             <CategoryVisual category={categories[1]} figNo="A3" variant={2} />
-            <CategoryVisual category={categories[9]} figNo="A4" variant={3} className="translate-y-6" />
+            <CategoryVisual category={categories[9]} figNo="A4" variant={3} className="translate-y-4" />
           </div>
         </div>
       </section>
@@ -109,7 +109,7 @@ export default function HomePage() {
           <div>
             <span className="font-data text-xs uppercase tracking-[0.25em] text-amber">Catalog</span>
             <h2 className="mt-3 font-display text-3xl uppercase tracking-tight text-ink sm:text-4xl">
-              Twelve component lines
+              {categories.length} component lines
             </h2>
           </div>
           <p className="max-w-md text-sm text-slate">

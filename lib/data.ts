@@ -17,7 +17,13 @@ export type Category = {
     | "hydraulicMotor"
     | "trackMotor"
     | "swingDevice"
-    | "catSpares";
+    | "catSpares"
+    | "breaker"
+    | "bucket"
+    | "crane"
+    | "filter"
+    | "loader";
+  images?: string[];
   specs: { label: string; value: string }[];
   applications: string[];
   keywords: string[];
@@ -34,7 +40,7 @@ export const siteConfig = {
     "Genuine-spec hydraulic & heavy-equipment components: engines, pumps, motors, undercarriage parts and CAT spares.",
   phone: "+91 84478 11405",
   email: "info@finehydraulic.com",
-  whatsapp: "+91 84478 11407",
+  whatsapp: "+91 84478 11405",
   address: "New Delhi, Delhi, India",
   hours: "Mon – Sat, 9:30 AM – 7:00 PM IST",
   founded: "2005",
@@ -76,6 +82,7 @@ export const categories: Category[] = [
     intro:
       "We recondition diesel engines and long/short blocks across the CAT, Cummins, Komatsu and Isuzu range used in earthmoving equipment. Cylinder heads are pressure-tested, crankshafts ground to spec, and every engine is run-tested for oil pressure, compression and smoke before it ships.",
     icon: "engine",
+    images: ["/images/engine/one.jpeg", "/images/engine/two.jpeg", "/images/engine/three.jpeg", "/images/engine/four.jpeg"],
     specs: [
       { label: "Configurations", value: "Long block, short block, complete unit" },
       { label: "Brands", value: "CAT, Cummins, Komatsu, Isuzu, Kubota" },
@@ -95,6 +102,7 @@ export const categories: Category[] = [
     intro:
       "From undercarriage to boom pins, we stock and rebuild the parts that keep excavators cutting cycle times. That includes hydraulic cylinders, main control valves, swing bearings, travel motors and structural pins & bushings for 5-tonne to 50-tonne class machines.",
     icon: "excavator",
+    images: ["/images/excavator/one.jpeg", "/images/excavator/two.jpeg", "/images/excavator/three.jpeg"],
     specs: [
       { label: "Machine class", value: "5T – 50T excavators" },
       { label: "Components", value: "Cylinders, control valves, pins & bushings" },
@@ -114,6 +122,7 @@ export const categories: Category[] = [
     intro:
       "Motor graders live or die on the precision of the circle drive and blade-control hydraulics. We rebuild circle drive motors, lift and tip cylinders, and articulation/steering assemblies to keep blade tolerance where your grading spec needs it.",
     icon: "grader",
+    images: ["/images/grader/one.jpeg", "/images/grader/two.jpeg"],
     specs: [
       { label: "Components", value: "Circle drive, lift cylinders, drawbar" },
       { label: "Brands", value: "CAT, Komatsu, Volvo, XCMG" },
@@ -133,6 +142,7 @@ export const categories: Category[] = [
     intro:
       "Compaction quality depends on a clean vibratory signal. We rebuild exciter assemblies, drum drive motors and propel/vibratory pumps for single and tandem-drum rollers, balancing eccentric weights to restore factory amplitude and frequency.",
     icon: "roller",
+    images: ["/images/roller/one.jpeg", "/images/roller/two.jpeg"],
     specs: [
       { label: "Roller types", value: "Single drum, tandem, pneumatic-tyre" },
       { label: "Components", value: "Exciter units, drum motors, propel pumps" },
@@ -152,6 +162,7 @@ export const categories: Category[] = [
     intro:
       "Track-type dozers put enormous cyclic load through the final drive and steering clutch packs. We recondition final drives, torque converters, and blade lift/tilt cylinders, and supply matched undercarriage sets for machines from 80 HP up to mining-class dozers.",
     icon: "dozer",
+    images: ["/images/dozer/one.jpeg", "/images/dozer/two.jpeg"],
     specs: [
       { label: "Components", value: "Final drives, steering clutch, blade cylinders" },
       { label: "Brands", value: "CAT, Komatsu, Shantui, Liebherr" },
@@ -171,6 +182,7 @@ export const categories: Category[] = [
     intro:
       "Modern earthmoving machines are as electrical as they are mechanical. We supply and repair wiring harnesses, pressure and speed sensors, ECM/controller units, solenoids and cab switches, every harness continuity-checked pin by pin.",
     icon: "wiring",
+    images: ["/images/electric/one.jpeg", "/images/electric/two.jpeg", "/images/electric/three.jpeg"],
     specs: [
       { label: "Components", value: "Harnesses, sensors, ECMs, solenoids" },
       { label: "Testing", value: "Pin-to-pin continuity checked" },
@@ -190,6 +202,7 @@ export const categories: Category[] = [
     intro:
       "The pump is the heart of the hydraulic circuit. We rebuild axial-piston main pumps, gear pumps and vane pumps with genuine-spec kits, resurfacing swash plates and valve plates, then bench-test each unit for flow, pressure and internal leakage against OEM figures.",
     icon: "hydraulicPump",
+    images: ["/images/hydraulic-pump/one.jpeg", "/images/hydraulic-pump/two.jpeg", "/images/hydraulic-pump/three.jpeg"],
     specs: [
       { label: "Types", value: "Axial piston, gear, vane" },
       { label: "Testing", value: "Flow & pressure bench-tested" },
@@ -209,6 +222,7 @@ export const categories: Category[] = [
     intro:
       "We recondition travel, swing and cooling-fan hydraulic motors, replacing cylinder blocks, pistons, valve plates and shaft seals as a matched set. Every motor is run under load on our test bench to confirm output torque and check for internal bypass before it's approved for dispatch.",
     icon: "hydraulicMotor",
+    images: ["/images/hydraulic-motor/one.jpeg", "/images/hydraulic-motor/two.jpeg"],
     specs: [
       { label: "Types", value: "Travel, swing, fan motors" },
       { label: "Testing", value: "Load-tested for torque & bypass" },
@@ -228,6 +242,7 @@ export const categories: Category[] = [
     intro:
       "Track motors combine a hydraulic travel motor with a planetary final drive in one sealed housing. We strip, inspect and rebuild both halves as a unit — new bearings, seals and friction discs for the parking brake — then bench-test for holding brake pressure and travel speed.",
     icon: "trackMotor",
+    images: ["/images/track-motor/one.jpeg", "/images/track-motor/two.jpeg", "/images/track-motor/three.jpeg"],
     specs: [
       { label: "Assembly", value: "Travel motor + planetary final drive" },
       { label: "Testing", value: "Brake-hold & travel-speed tested" },
@@ -236,6 +251,46 @@ export const categories: Category[] = [
     ],
     applications: ["Excavator undercarriage", "Crawler cranes", "Track loaders"],
     keywords: ["track motor", "travel motor final drive", "undercarriage motor", "final drive assembly"],
+  },
+  {
+    slug: "breakers", name: "Hydraulic Breakers", shortName: "Breakers", tagline: "Hydraulic rock breakers and demolition attachments",
+    description: "Hydraulic breakers, hammers and demolition attachments for excavators, supplied with dependable service support.",
+    intro: "We supply hydraulic rock breakers and demolition hammers for excavators across common operating weights. Our team can help match the breaker, tool and hose configuration to your machine and working conditions.",
+    icon: "breaker", images: ["/images/breakers/one.jpeg", "/images/breakers/two.jpeg"],
+    specs: [{ label: "Type", value: "Hydraulic rock breaker / hammer" }, { label: "Fitment", value: "Excavator-mounted" }, { label: "Support", value: "Tool and hose matching available" }, { label: "Use", value: "Rock breaking and demolition" }],
+    applications: ["Demolition", "Quarrying", "Road work", "Site clearance"], keywords: ["hydraulic breaker", "excavator hammer", "rock breaker", "demolition attachment"],
+  },
+  {
+    slug: "buckets", name: "Excavator Buckets", shortName: "Buckets", tagline: "Excavator buckets and heavy-duty digging attachments",
+    description: "Excavator buckets and digging attachments for earthmoving, trenching, quarry and construction work.",
+    intro: "Our bucket range covers general-purpose, trenching and heavy-duty excavation applications. We can help identify the correct capacity, pin size and attachment configuration for your excavator.",
+    icon: "bucket", images: ["/images/bucket/one.jpeg", "/images/bucket/two.jpeg", "/images/bucket/three.jpeg"],
+    specs: [{ label: "Types", value: "General-purpose, trenching, heavy-duty" }, { label: "Fitment", value: "Excavator pin-on attachments" }, { label: "Applications", value: "Digging, loading, trenching" }, { label: "Support", value: "Machine matching available" }],
+    applications: ["Earthmoving", "Trenching", "Quarrying", "Construction"], keywords: ["excavator bucket", "digging bucket", "trenching bucket", "excavator attachment"],
+  },
+  {
+    slug: "cranes", name: "Cranes", shortName: "Cranes", tagline: "Crane components and hydraulic equipment support",
+    description: "Crane components and hydraulic equipment support for lifting, construction and material-handling applications.",
+    intro: "We support crane hydraulic and mechanical component requirements, helping customers source dependable parts for lifting and material-handling equipment.",
+    icon: "crane", images: ["/images/crane/one.jpeg", "/images/crane/two.jpeg", "/images/crane/three.jpeg"],
+    specs: [{ label: "Coverage", value: "Hydraulic and mechanical components" }, { label: "Equipment", value: "Mobile and crawler cranes" }, { label: "Applications", value: "Lifting and material handling" }, { label: "Support", value: "Part identification assistance" }],
+    applications: ["Construction lifting", "Material handling", "Infrastructure", "Industrial sites"], keywords: ["crane parts", "crane hydraulic components", "crawler crane parts", "mobile crane components"],
+  },
+  {
+    slug: "filters", name: "Filters", shortName: "Filters", tagline: "Hydraulic, engine and fuel filtration components",
+    description: "Hydraulic, engine, fuel and air filters for dependable heavy-equipment maintenance.",
+    intro: "We supply essential filtration components to protect hydraulic circuits and engines from contamination. Share your machine or part number and our team can help match the correct filter.",
+    icon: "filter", images: ["/images/filter/one.jpeg"],
+    specs: [{ label: "Types", value: "Hydraulic, engine, fuel and air" }, { label: "Use", value: "Routine maintenance and protection" }, { label: "Fitment", value: "Heavy equipment applications" }, { label: "Support", value: "Part-number matching available" }],
+    applications: ["Hydraulic systems", "Diesel engines", "Fuel systems", "Preventive maintenance"], keywords: ["hydraulic filter", "excavator filter", "engine filter", "heavy equipment filters"],
+  },
+  {
+    slug: "loaders", name: "Loaders", shortName: "Loaders", tagline: "Wheel loader parts and hydraulic components",
+    description: "Wheel loader components and hydraulic parts for construction, quarry and material-handling operations.",
+    intro: "We help keep wheel loaders productive with hydraulic, drivetrain and attachment-related component support for demanding loading applications.",
+    icon: "loader", images: ["/images/loader/one.jpeg", "/images/loader/two.jpeg"],
+    specs: [{ label: "Coverage", value: "Hydraulic, drivetrain and attachment parts" }, { label: "Equipment", value: "Wheel loaders" }, { label: "Applications", value: "Loading and material handling" }, { label: "Support", value: "Part identification assistance" }],
+    applications: ["Quarry loading", "Construction", "Material handling", "Stockpiling"], keywords: ["wheel loader parts", "loader hydraulic parts", "loader components", "construction loader parts"],
   },
   {
     slug: "swing-device",

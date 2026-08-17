@@ -59,6 +59,7 @@ export default async function ProductPage({
   if (!category) notFound();
 
   const related = categories.filter((c) => c.slug !== category.slug).slice(0, 3);
+  const visualCount = category.images?.length === 1 ? 1 : 4;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -89,10 +90,15 @@ export default async function ProductPage({
 
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <CategoryVisual category={category} figNo="01" className="sm:col-span-2" />
-            <CategoryVisual category={category} figNo="02" variant={1} />
-            <CategoryVisual category={category} figNo="03" variant={2} />
+          <div className={`grid gap-5 ${visualCount === 1 ? "max-w-lg grid-cols-1" : "grid-cols-2"}`}>
+            {Array.from({ length: visualCount }, (_, index) => (
+              <CategoryVisual
+                key={index}
+                category={category}
+                figNo={String(index + 1).padStart(2, "0")}
+                variant={index}
+              />
+            ))}
           </div>
 
           <div>
@@ -138,6 +144,44 @@ export default async function ProductPage({
                 See More Photos
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line-dark bg-paper-2 py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <span className="font-data text-xs uppercase tracking-[0.25em] text-amber">Support from enquiry to fitment</span>
+          <h2 className="mt-3 font-display text-2xl uppercase tracking-tight text-ink sm:text-3xl">
+            Get the right {category.shortName.toLowerCase()} the first time
+          </h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-slate">
+            Send us your machine make, model, serial number and the part number if available. Our team checks fitment before quoting and can help you compare repair, rebuilt and replacement options for your equipment.
+          </p>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              { title: "Identify", body: "Share the machine details, photographs or an old part number and we will help confirm the correct configuration." },
+              { title: "Prepare", body: `Every ${category.shortName.toLowerCase()} is assessed against its application, operating load and compatibility requirements before dispatch.` },
+              { title: "Support", body: "We provide clear installation guidance, warranty information and responsive help if you need to verify anything after delivery." },
+            ].map((item, index) => (
+              <div key={item.title} className="border-t-2 border-amber pt-5">
+                <span className="font-data text-xs text-slate">0{index + 1}</span>
+                <h3 className="mt-2 font-display text-xl uppercase tracking-wide text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-9 flex flex-wrap gap-4">
+            <a
+              href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(`Hello Fine Hydraulic, I need help with ${category.name}.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-sm bg-[#25D366] px-6 py-3.5 font-display uppercase tracking-wide text-white transition-colors hover:bg-[#1DAA56]"
+            >
+              Ask on WhatsApp
+            </a>
+            <Link href="/contact" className="rounded-sm border border-line-dark px-6 py-3.5 font-display uppercase tracking-wide text-ink transition-colors hover:border-amber hover:text-amber">
+              Send an enquiry
+            </Link>
           </div>
         </div>
       </section>

@@ -49,7 +49,11 @@ export default function GalleryPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6">
-        {categories.map((c, ci) => (
+        {categories.map((c, ci) => {
+          // Keep a one-photo category focused; use four tiles for every multi-photo category.
+          const visualCount = c.images?.length === 1 ? 1 : 4;
+
+          return (
           <section key={c.slug} id={c.slug} className="scroll-mt-32 border-b border-line-dark py-14 last:border-b-0">
             <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
               <div>
@@ -69,8 +73,8 @@ export default function GalleryPage() {
               </Link>
             </div>
 
-            <div className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {[0, 1, 2, 3].map((v) => (
+            <div className={`mt-7 grid gap-4 ${visualCount === 1 ? "max-w-sm grid-cols-1" : "grid-cols-2 sm:grid-cols-4"}`}>
+              {Array.from({ length: visualCount }, (_, v) => (
                 <CategoryVisual
                   key={v}
                   category={c}
@@ -80,7 +84,8 @@ export default function GalleryPage() {
               ))}
             </div>
           </section>
-        ))}
+          );
+        })}
       </div>
     </>
   );

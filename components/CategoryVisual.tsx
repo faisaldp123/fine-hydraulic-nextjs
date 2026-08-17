@@ -3,12 +3,6 @@ import { Category } from "@/lib/data";
 
 const ACCENTS = ["#E2861E", "#6B8CAE", "#B96812", "#8A9BA8"];
 
-// Products without listed photos keep their existing technical SVG illustration.
-const CATEGORY_IMAGES: Partial<Record<Category["slug"], string[]>> = {
-  engine: ["/images/engine/one.jpeg", "/images/engine/two.jpeg", "/images/engine/three.jpeg", "/images/engine/four.jpeg"],
-  excavator: ["/images/excavator/one.jpeg", "/images/excavator/two.jpeg", "/images/excavator/three.jpeg"],
-};
-
 function Glyph({ icon, stroke }: { icon: Category["icon"]; stroke: string }) {
   const common = {
     fill: "none",
@@ -189,7 +183,7 @@ export function CategoryVisual({
 }) {
   const accent = ACCENTS[variant % ACCENTS.length];
   const rotate = [0, 0, 0, 0][variant % 4];
-  const images = CATEGORY_IMAGES[category.slug];
+  const images = category.images;
   const image = images?.[variant % images.length];
   return (
     <div
@@ -215,6 +209,7 @@ export function CategoryVisual({
           </svg>
         </div>
       )}
+      {image && <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-graphite/90 via-graphite/15 to-graphite/55" />}
       <div className="absolute left-3 top-3 font-data text-[10px] tracking-widest text-slate-light/80">
         FIG. {figNo}
       </div>
